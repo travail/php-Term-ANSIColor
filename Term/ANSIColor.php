@@ -41,7 +41,7 @@ class ANSIColor
         'concealed'  => '8',
     );
 
-    static public function colorize($string, $f = '', $b = '', $a = '')
+    static public function colored($string, $f = '', $b = '', $a = '')
     {
         if (!$f && !$b && !$a) return $string;
 
@@ -52,5 +52,20 @@ class ANSIColor
         if ($f || $b || $a) $colored .= $string . "\033[0m";
 
         return $colored;
+    }
+
+    static public function getForegroundColors()
+    {
+        return self::$foreground;
+    }
+
+    static public function getBackgroundColors()
+    {
+        return self::$background;
+    }
+
+    static public function getAttributes()
+    {
+        return self::$attributes;
     }
 }
