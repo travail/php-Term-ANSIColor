@@ -1,6 +1,6 @@
 # \Term\ANSIColor
 
-## Name
+## NAME
 
 \Term\ANSIColor - Color screen output using ANSI escape sequences
 
@@ -32,16 +32,14 @@ echo \Term\ANSIColor::colored("[ERROR] Error message in red on black\n" , 'error
 
 `string colored(string $text, string $foreground_color, string $background_color, string $attribute)`
 
+Returns a colored text, or `Exception` if passed non-existent `$foreground_color`, `$background_color` or `$attribute`.
+
 #### Parameters
 
 * $text
 * $foreground_color
 * $background_color
 * $attribute
-
-#### Return Values
-
-Returns a colored text, or `Exception` if passed non-existent `$foreground_color`, `$background_color` or `$attribute`.
 
 ### setAlias
 
@@ -56,19 +54,17 @@ Returns a colored text, or `Exception` if passed non-existent `$foreground_color
 * $background_color
 * $attribute
 
-#### Return Values
-
 ### getAlias
 
 #### Description
 
-`getAlias([string $alais = ''])`
+`array getAlias([string $alais = ''])`
+
+Returns an available alias as an array if `$alias` passed, all of alias if `$alias` not passed, or `Exception` if non-existent `$alias` passed.
 
 #### Parameters
 
 * $alias
-
-#### Return Values
 
 ### getForegourndColors
 
@@ -76,20 +72,14 @@ Returns a colored text, or `Exception` if passed non-existent `$foreground_color
 
 `array getForegroundColors(void)`
 
-#### Return Values
-
 ### getBackgroundColors
 
 #### Description
 
 `array getBackgroundColors(void)`
 
-#### Return Values
-
 ### getAttributes
 
 #### Description
 
 `array getAttributes(void)`
-
-#### Return Values
