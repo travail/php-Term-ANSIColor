@@ -32,7 +32,7 @@ class ANSIColor
         'cyan'       => '46',
         'light_gray' => '47',
     );
-    static private $attributes = array(
+    static private $attribute = array(
         'normal'     => '0',
         'bold'       => '1',
         'underscore' => '4',
@@ -40,17 +40,86 @@ class ANSIColor
         'reverse'    => '7',
         'concealed'  => '8',
     );
+    static private $alias = array();
 
-    static public function colorize($string, $f = '', $b = '', $a = '')
+    static public function colored($string, $f = '', $b = '', $a = '')
     {
+        if (self::validateAlias($f)) list($f, $b, $a) = self::$alias[$f];
         if (!$f && !$b && !$a) return $string;
 
+        if ($f && !self::validateForegroundColor($f) && !self::validateAlias($f))
+            throw new \Exception("No such a foreground color '$f'");
+        if ($b && !self::validateBackgroundColor($b))
+            throw new \Exception("No such a background color '$b'");
+        if ($a && !self::validateAttribute($a))
+            throw new \Exception("No such an attribute '$a'");
+
         $colored = '';
-        if ($f)       $colored .= "\033[" . self::$foreground[$f] . "m";
-        if ($b)       $colored .= "\033[" . self::$background[$b] . "m";
-        if ($a)       $colored .= "\033[" . self::$attributes[$a] . "m";
+        if ($f)             $colored .= "\033[" . self::$foreground[$f] . "m";
+        if ($b)             $colored .= "\033[" . self::$background[$b] . "m";
+        if ($a)             $colored .= "\033[" . self::$attribute[$a] . "m";
         if ($f || $b || $a) $colored .= $string . "\033[0m";
 
         return $colored;
+    }
+
+    static public function setAlias($alias, $f = '', $b = '', $a = '')
+    {
+        if (!$alias)
+            throw new \Exception('alias is required');
+        if (!$f && !$b && !$a)
+            throw new \Exception(
+                'Specify at least one from foreground color, ' .
+                'background color and text attribute');
+
+        self::$alias[$alias] = array($f, $b, $a);
+    }
+
+    static public function getAlias($alias = '')
+    {
+        if (!$alias) {
+            return self::$alias;
+        }
+        elseif (self::validateAlias($alias)) {
+            return self::$alias[$alias];
+        }
+        else {
+            throw new \Exception("No such an alias $alias");
+        }
+    }
+
+    static public function getForegroundColors()
+    {
+        return self::$foreground;
+    }
+
+    static public function getBackgroundColors()
+    {
+        return self::$background;
+    }
+
+    static public function getAttributes()
+    {
+        return self::$attribute;
+    }
+
+    static public function validateForegroundColor($color)
+    {
+        return key_exists($color, self::$foreground);
+    }
+
+    static public function validateBackgroundColor($color)
+    {
+        return key_exists($color, self::$background);
+    }
+
+    static public function validateAttribute($attr)
+    {
+        return key_exists($attr, self::$attribute);
+    }
+
+    static public function validateAlias($alias)
+    {
+        return key_exists($alias, self::$alias);
     }
 }
