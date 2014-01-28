@@ -35,9 +35,9 @@ echo \Term\ANSIColor::colored("[ERROR] Error message in red on black\n" , 'error
 * $background_color
 * $attribute
 
-### array setAlias
+### array setAlias(string $alias, string $foreground_color, string $background_color, string $attribute)
 
-#### parameters(string $alias, string $foreground_color, string $background_color, string $attribute)
+#### parameters
 
 * $alias
 * $foreground_color
