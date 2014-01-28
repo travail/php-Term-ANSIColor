@@ -26,32 +26,70 @@ echo \Term\ANSIColor::colored("[ERROR] Error message in red on black\n" , 'error
 
 ## FUNCTIONS
 
-### string colored(string $string, string $foreground_color, string $background_color, string $attribute)
+### colored
 
-#### parameters
+#### Description
 
-* $string
+`string colored(string $text, string $foreground_color, string $background_color, string $attribute)`
+
+#### Parameters
+
+* $text
 * $foreground_color
 * $background_color
 * $attribute
 
-### array setAlias(string $alias, string $foreground_color, string $background_color, string $attribute)
+#### Return Values
 
-#### parameters
+Returns a colored text, or `Exception` if passed non-existent `$foreground_color`, `$background_color` or `$attribute`.
+
+### setAlias
+
+#### Description
+
+`array setAlias(string $alias, string $foreground_color, string $background_color, string $attribute)`
+
+#### Parameters
 
 * $alias
 * $foreground_color
 * $background_color
 * $attribute
 
-### getAlias([string $alais = ''])
+#### Return Values
 
-#### parameters
+### getAlias
+
+#### Description
+
+`getAlias([string $alais = ''])`
+
+#### Parameters
 
 * $alias
 
-### array getForegroundColors()
+#### Return Values
 
-### array getBackgroundColors()
+### getForegourndColors
 
-### array getAttributes()
+#### Description
+
+`array getForegroundColors(void)`
+
+#### Return Values
+
+### getBackgroundColors
+
+#### Description
+
+`array getBackgroundColors(void)`
+
+#### Return Values
+
+### getAttributes
+
+#### Description
+
+`array getAttributes(void)`
+
+#### Return Values
