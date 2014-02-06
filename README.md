@@ -2,7 +2,7 @@
 
 ## NAME
 
-\Term\ANSIColor - Color screen output using ANSI escape sequences
+\Term\ANSIColor - Color screen output using ANSI escape sequences, port of the Perl module [Term::ANSIColor](https://metacpan.org/pod/Term::ANSIColor)
 
 ## SYNOPSIS
 
@@ -24,62 +24,44 @@ echo \Term\ANSIColor::colored("[ERROR] Error message in red on black\n" , 'error
 
 ```
 
-## FUNCTIONS
+## METHODS
 
 ### colored
-
-#### Description
 
 `string colored(string $text, string $foreground_color, string $background_color, string $attribute)`
 
 Returns a colored text, or `Exception` if passed non-existent `$foreground_color`, `$background_color` or `$attribute`.
 
-#### Parameters
-
-* $text
-* $foreground_color
-* $background_color
-* $attribute
-
 ### setAlias
-
-#### Description
 
 `array setAlias(string $alias, string $foreground_color, string $background_color, string $attribute)`
 
-#### Parameters
-
-* $alias
-* $foreground_color
-* $background_color
-* $attribute
-
 ### getAlias
-
-#### Description
 
 `array getAlias([string $alais = ''])`
 
 Returns an available alias as an array if `$alias` passed, all of alias if `$alias` not passed, or `Exception` if non-existent `$alias` passed.
 
-#### Parameters
-
-* $alias
-
 ### getForegourndColors
-
-#### Description
 
 `array getForegroundColors(void)`
 
 ### getBackgroundColors
 
-#### Description
-
 `array getBackgroundColors(void)`
 
 ### getAttributes
 
-#### Description
-
 `array getAttributes(void)`
+
+## THANKS TO
+
+Russ Allbery `rra@stanford.edu`
+
+## AUTHOR
+
+travail
+
+## LICENSE
+
+This library is free software. You can redistribute it and/or modify it under the same terms as PHP itself.
