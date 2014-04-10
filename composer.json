@@ -1,0 +1,11 @@
+{
+  "name": "travail/term-ansicolor",
+  "description": "travail/term-ansicolor",
+  "license": "PHP-3.0",
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Term\\": "lib"
+    }
+  }
+}
