@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(dirname(__FILE__)) . '/lib/Term/ANSIColor.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 main();
 exit;
