@@ -51,6 +51,8 @@ Returns a colored text, or `Exception` if passed non-existent `$foreground_color
 
 `array setAlias(string $alias, string $foreground_color, string $background_color, string $attribute)`
 
+Sets an alias for the standard color and attribute.
+
 ### getAlias
 
 `array getAlias([string $alais = ''])`
@@ -61,14 +63,65 @@ Returns an available alias as an array if `$alias` passed, all of alias if `$ali
 
 `array getForegroundColors(void)`
 
+Returns the defined foreground colors as array.
+
+```
+array(
+    'black'       => '0;30',
+    'dark_gray'   => '1;30',
+    'blue'        => '0;34',
+    'light_blue'  => '1;34',
+    'green'       => '0;32',
+    'light_green' => '1;32',
+    'cyan'        => '0;36',
+    'light_cyan'  => '1;36',
+    'red'         => '0;31',
+    'light_red'   => '1;31',
+    'purple'      => '0;35',
+    'light_purple'=> '1;35',
+    'brown'       => '0;33',
+    'yellow'      => '1;33',
+    'light_gray'  => '0;37',
+    'white'       => '1;37',
+);
+```
+
 
 ### getBackgroundColors
 
 `array getBackgroundColors(void)`
 
+Returns the defined background colors as array.
+
+```
+array(
+    'black'      => '40',
+    'red'        => '41',
+    'green'      => '42',
+    'yellow'     => '43',
+    'blue'       => '44',
+    'magenta'    => '45',
+    'cyan'       => '46',
+    'light_gray' => '47',
+);
+```
+
 ### getAttributes
 
 `array getAttributes(void)`
+
+Returns the defined attributes as array.
+
+```
+array(
+    'normal'     => '0',
+    'bold'       => '1',
+    'underscore' => '4',
+    'blink'      => '5',
+    'reverse'    => '7',
+    'concealed'  => '8',
+);
+```
 
 ## AUTHOR
 
