@@ -12,10 +12,12 @@ This package is not distributed on [packgist](https://packagist.org) for now. To
 "require": {
     "travail/term-ansicolor": "dev-master"
 },
-"repositories": {
-    "type": "vcs",
-    "url": "git@github.com:travail/php-Term-ANSIColor.git"
-}
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "git@github.com:travail/php-Term-ANSIColor.git"
+    }
+]
 ```
 
 ## SYNOPSIS	
