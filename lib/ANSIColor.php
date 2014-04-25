@@ -4,6 +4,9 @@ namespace Term;
 
 class ANSIColor
 {
+    /**
+     * @var array ANSI foreground color map
+     */
     static private $foreground = array(
         'black'       => '0;30',
         'dark_gray'   => '1;30',
@@ -22,6 +25,10 @@ class ANSIColor
         'light_gray'  => '0;37',
         'white'       => '1;37',
     );
+
+    /**
+     * @var array ANSI background color map
+     */
     static private $background = array(
         'black'      => '40',
         'red'        => '41',
@@ -32,6 +39,10 @@ class ANSIColor
         'cyan'       => '46',
         'light_gray' => '47',
     );
+
+    /**
+     * @var array ANSI text attribute map
+     */
     static private $attribute = array(
         'normal'     => '0',
         'bold'       => '1',
@@ -40,8 +51,22 @@ class ANSIColor
         'reverse'    => '7',
         'concealed'  => '8',
     );
+
+    /**
+     * @var array
+     */
     static private $alias = array();
 
+    /**
+     * Colorlize and decorate string.
+     *
+     * @param string $string
+     * @param string $f
+     * @param string $b
+     * @param string $a
+     * @return string Colored string
+     * @throws \Exception
+     */
     static public function colored($string, $f = '', $b = '', $a = '')
     {
         if (self::validateAlias($f)) list($f, $b, $a) = self::$alias[$f];
@@ -63,6 +88,16 @@ class ANSIColor
         return $colored;
     }
 
+    /**
+     * Set an alias.
+     *
+     * @param string $alias
+     * @param string $f
+     * @param string $b
+     * @param string $a
+     * @return void
+     * @throws \Exception
+     */
     static public function setAlias($alias, $f = '', $b = '', $a = '')
     {
         if (!$alias)
@@ -75,6 +110,14 @@ class ANSIColor
         self::$alias[$alias] = array($f, $b, $a);
     }
 
+    /**
+     * Return an alias when $alias is given
+     * return all alias when $alias is not given.
+     *
+     * @param string $alias
+     * @return array
+     * @throws \Exception
+     */
     static public function getAlias($alias = '')
     {
         if (!$alias) {
@@ -88,36 +131,75 @@ class ANSIColor
         }
     }
 
+    /**
+     * Return ANSI foreground color map.
+     *
+     * @return array
+     */
     static public function getForegroundColors()
     {
         return self::$foreground;
     }
 
+    /**
+     * Return ANSI background color map.
+     *
+     * @return array
+     */
     static public function getBackgroundColors()
     {
         return self::$background;
     }
 
+    /**
+     * Return ANSI text attribute map.
+     *
+     * @return array
+     */
     static public function getAttributes()
     {
         return self::$attribute;
     }
 
+    /**
+     * Validate given ANSI foreground color.
+     *
+     * @param string $color
+     * @return boolean
+     */
     static public function validateForegroundColor($color)
     {
         return isset(self::$foreground[$color]);
     }
 
+    /**
+     * Validate given ANSI background color.
+     *
+     * @param string $color
+     * @return boolean
+     */
     static public function validateBackgroundColor($color)
     {
         return isset(self::$background[$color]);
     }
 
+    /**
+     * Validate given ANSI text attribute.
+     *
+     * @param string $attr
+     * @return boolean
+     */
     static public function validateAttribute($attr)
     {
         return isset(self::$attribute[$attr]);
     }
 
+    /**
+     * Validate given alias.
+     *
+     * @param string $alias
+     * @return boolean
+     */
     static public function validateAlias($alias)
     {
         return isset(self::$alias[$alias]);
