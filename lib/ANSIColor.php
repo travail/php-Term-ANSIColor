@@ -169,7 +169,7 @@ class ANSIColor
      */
     static public function validateForegroundColor($color)
     {
-        return key_exists($color, self::$foreground);
+        return isset(self::$foreground[$color]);
     }
 
     /**
@@ -180,7 +180,7 @@ class ANSIColor
      */
     static public function validateBackgroundColor($color)
     {
-        return key_exists($color, self::$background);
+        return isset(self::$background[$color]);
     }
 
     /**
@@ -191,7 +191,7 @@ class ANSIColor
      */
     static public function validateAttribute($attr)
     {
-        return key_exists($attr, self::$attribute);
+        return isset(self::$attribute[$attr]);
     }
 
     /**
@@ -202,6 +202,6 @@ class ANSIColor
      */
     static public function validateAlias($alias)
     {
-        return key_exists($alias, self::$alias);
+        return isset(self::$alias[$alias]);
     }
 }

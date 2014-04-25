@@ -1,15 +1,17 @@
 <?php
 
-require_once dirname(dirname(__FILE__)) . '/lib/Term/ANSIColor.php';
+use \Term\ANSIColor;
+
+require_once __DIR__ . '/../vendor/autoload.php';
 
 main();
 exit;
 
 function main()
 {
-    $foreground = \Term\ANSIColor::getForegroundColors();
+    $foreground = ANSIColor::getForegroundColors();
     foreach ($foreground as $color => $code) {
         $string = "Hello World! with $color\n";
-        echo \Term\ANSIColor::colored($string , $color);
+        echo ANSIColor::colored($string , $color);
     }
 }

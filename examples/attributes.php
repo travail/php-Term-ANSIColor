@@ -1,15 +1,17 @@
 <?php
 
-require_once dirname(dirname(__FILE__)) . '/lib/Term/ANSIColor.php';
+use \Term\ANSIColor;
+
+require_once __DIR__ . '/../vendor/autoload.php';
 
 main();
 exit;
 
 function main()
 {
-    $attributes = \Term\ANSIColor::getAttributes();
+    $attributes = ANSIColor::getAttributes();
     foreach ($attributes as $attr => $code) {
         $string = "Hello Workd with $attr\n";
-        echo \Term\ANSIColor::colored($string, null, null, $attr);
+        echo ANSIColor::colored($string, null, null, $attr);
     }
 }
