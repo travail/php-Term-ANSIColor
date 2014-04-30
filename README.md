@@ -4,23 +4,7 @@
 
 \Term\ANSIColor - Color screen output using ANSI escape sequences.
 
-## INSTALLATION
-
-This package is not distributed on [packgist](https://packagist.org) for now. To install this package into your project via composer, add the following snippet to your `composer.json`. Then run `composer update`.
-
-```
-"require": {
-    "travail/term-ansicolor": "dev-master"
-},
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "git@github.com:travail/php-Term-ANSIColor.git"
-    }
-]
-```
-
-## SYNOPSIS	
+## SYNOPSIS
 
 ```php
 use \Term\ANSIColor;
@@ -39,6 +23,27 @@ ANSIColor::setAlias('debug', 'red', 'light_gray');
 echo ANSIColor::colored("[DEBUG] Debug message in red on light_gray\n" , 'debug');
 ANSIColor::setAlias('error', 'red', 'black');
 echo ANSIColor::colored("[ERROR] Error message in red on black\n" , 'error');
+```
+
+## INSTALLATION
+
+To install this package into your project via composer, add the following snippet to your `composer.json`. Then run `composer install`.
+
+```
+"require": {
+    "travail/term-ansicolor": "dev-master"
+}
+```
+
+If you want to install from github, add the following:
+
+```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "git@github.com:travail/php-Term-ANSIColor.git"
+    }
+]
 ```
 
 ## METHODS
@@ -132,4 +137,3 @@ travail
 ## LICENSE
 
 This library is free software. You can redistribute it and/or modify it under the same terms as PHP itself.
-
