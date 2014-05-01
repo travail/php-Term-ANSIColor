@@ -5,6 +5,11 @@ namespace Term;
 class ANSIColor
 {
     /**
+     * @var string The version of this package
+     */
+    const VERSION = '0.1.0';
+
+    /**
      * @var array ANSI foreground color map
      */
     static private $foreground = array(
